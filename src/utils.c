@@ -40,10 +40,8 @@ static void	ft_putnbr_recur_base(unsigned long int nb, char *base, int base_len)
 
 void	ft_putnbr_base(unsigned long int nb, char *base)
 {
-	int	len;
 	int	base_len;
 
 	base_len = ft_strlen(base);
-	len = ft_nbrlen_base(nb, base_len);
 	ft_putnbr_recur_base(nb, base, base_len);
 }
