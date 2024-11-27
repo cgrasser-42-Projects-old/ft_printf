@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_format_str.c                                :+:      :+:    :+:   */
+/*   ft_printf_string.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 19:41:58 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/11/24 07:06:37 by cgrasser         ###   ########.fr       */
+/*   Created: 2024/11/27 12:01:20 by cgrasser          #+#    #+#             */
+/*   Updated: 2024/11/27 12:02:27 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,6 @@ static int	handle_string_minus(t_flags *flags, char *s, int size_s)
 	else
 		return (ft_putstr(s, size_s)
 			+ handle_flag_width(flags->width, size_s, SPACE));
-}
-
-int	handle_char(int c, t_flags *flags)
-{
-	int	len;
-
-	len = 1;
-	if (!flags->minus)
-		len += handle_flag_width(flags->width, 1, SPACE);
-	ft_putchar_fd((char)c, 1);
-	if (flags->minus)
-		len += handle_flag_width(flags->width, 1, SPACE);
-	return (len);
 }
 
 int	handle_string(char *s, t_flags *flags)

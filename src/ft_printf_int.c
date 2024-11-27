@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_nbr_process.c                               :+:      :+:    :+:   */
+/*   ft_printf_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 19:36:35 by cgrasser          #+#    #+#             */
-/*   Updated: 2024/11/24 06:09:23 by cgrasser         ###   ########.fr       */
+/*   Created: 2024/11/27 12:03:16 by cgrasser          #+#    #+#             */
+/*   Updated: 2024/11/27 12:04:21 by cgrasser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,27 @@ int	handle_nbr_no_minus(t_flags *flags, unsigned long int nb,
 	if (flags->precision == 0 && nb == 0)
 		return (handle_nbr_precision_null(flags, len));
 	return (ft_putnbr_base(nb, base), len + size_nb);
+}
+
+int	handle_integer(int n, t_flags *flags)
+{
+	unsigned long int	nb;
+	int					size_nb;
+
+	if (n < 0)
+	{
+		flags->negative = 1;
+		if (n == -2147483648)
+			nb = 2147483648;
+		else
+			nb = -n;
+	}
+	else
+		nb = n;
+	flags->hash = 0;
+	size_nb = ft_nbrlen_base(nb, DEC_LEN);
+	if (flags->minus)
+		return (handle_nbr_minus(flags, nb, size_nb, DECIMAL));
+	else
+		return (handle_nbr_no_minus(flags, nb, size_nb, DECIMAL));
 }

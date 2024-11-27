@@ -6,7 +6,7 @@
 #    By: cgrasser <cgrasser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 08:17:14 by cgrasser          #+#    #+#              #
-#    Updated: 2024/11/24 07:32:19 by cgrasser         ###   ########.fr        #
+#    Updated: 2024/11/27 12:14:32 by cgrasser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,15 @@ AR = ar rcs
 RM = rm -rf
 
 SRC = src/ft_printf.c \
-	  src/handle_flag.c \
-	  src/handle_format_str.c \
-	  src/handle_format_nbr.c \
-	  src/handle_nbr_process.c \
-	  src/utils.c
-
+	  src/ft_printf_flag.c \
+	  src/ft_printf_char.c \
+	  src/ft_printf_string.c \
+	  src/ft_printf_ptr.c \
+	  src/ft_printf_int.c \
+	  src/ft_printf_uint.c \
+	  src/ft_printf_hex.c \
+	  src/ft_printf_utils.c
+	 
 OBJ_DIR = obj
 OBJS = $(SRC:src/%.c=$(OBJ_DIR)/%.o)
 
